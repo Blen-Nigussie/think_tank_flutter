@@ -19,7 +19,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
   bool _isLoading = false;
   String? _errorMessage;
-  bool _saveSuccess = false;
 
   // For demonstration, you might initialize these from a user model
   @override
@@ -42,7 +41,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
     setState(() {
       _isLoading = true;
       _errorMessage = null;
-      _saveSuccess = false;
     });
 
     // Simulate network call
@@ -65,31 +63,31 @@ class _EditProfilePageState extends State<EditProfilePage> {
       });
     } else {
       setState(() {
-        _saveSuccess = true;
         _isLoading = false;
       });
+      if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Profile updated successfully')),
       );
       // Navigate back after a short delay to allow SnackBar to show
       Future.delayed(const Duration(seconds: 1), () {
-        widget.onBackClick();
+        if (mounted) {
+          widget.onBackClick();
+        }
       });
     }
   }
 
   void _onImageSelect() {
-    // TODO: Implement actual image picking using image_picker package
-    // For now, this is just a placeholder.
     debugPrint('Image selection triggered');
   }
 
   @override
   Widget build(BuildContext context) {
-    final Color orange = const Color(0xFFFAA60C);
-    final Color white = Colors.white;
-    final Color backgroundColor = Colors.black;
-    final Color errorColor = Colors.red;
+    const Color orange = Color(0xFFFAA60C);
+    const Color white = Colors.white;
+    const Color backgroundColor = Colors.black;
+    const Color errorColor = Colors.red;
 
     return Scaffold(
       backgroundColor: backgroundColor,
@@ -104,13 +102,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 children: [
                   IconButton(
                     onPressed: widget.onBackClick,
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.arrow_back,
                       color: white,
                     ),
                   ),
                   const Spacer(),
-                  Text(
+                  const Text(
                     "Edit Profile",
                     style: TextStyle(
                       fontSize: 24,
@@ -152,7 +150,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           border: Border.all(color: orange, width: 1),
                         ),
                         padding: const EdgeInsets.all(4.0),
-                        child: Icon(
+                        child: const Icon(
                           Icons.edit,
                           color: orange,
                           size: 20,
@@ -167,7 +165,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
               // Form Fields
               TextField(
                 controller: _firstNameController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'First Name',
                   labelStyle: TextStyle(color: white),
                   focusedBorder: OutlineInputBorder(
@@ -178,12 +176,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   ),
                   floatingLabelStyle: TextStyle(color: orange),
                 ),
-                style: TextStyle(color: white),
+                style:const  TextStyle(color: white),
               ),
               const SizedBox(height: 16),
               TextField(
                 controller: _lastNameController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Last Name',
                   labelStyle: TextStyle(color: white),
                   focusedBorder: OutlineInputBorder(
@@ -194,15 +192,15 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   ),
                   floatingLabelStyle: TextStyle(color: orange),
                 ),
-                style: TextStyle(color: white),
+                style: const TextStyle(color: white),
               ),
               const SizedBox(height: 16),
               TextField(
                 controller: _emailController,
                 keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Email',
-                  labelStyle: TextStyle(color: white),
+                  labelStyle:  TextStyle(color: white),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: orange),
                   ),
@@ -211,7 +209,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   ),
                   floatingLabelStyle: TextStyle(color: orange),
                 ),
-                style: TextStyle(color: white),
+                style: const TextStyle(color: white),
               ),
               const SizedBox(height: 24),
 
@@ -221,7 +219,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   padding: const EdgeInsets.only(bottom: 8.0),
                   child: Text(
                     _errorMessage!,
-                    style: TextStyle(color: errorColor, fontSize: 14),
+                    style: const TextStyle(color: errorColor, fontSize: 14),
                     textAlign: TextAlign.center,
                   ),
                 ),

@@ -175,7 +175,7 @@ class _LoginPageState extends State<LoginPage> {
                   GestureDetector(
                     onTap: widget.onNavigateToSignup,
                     child: const Text(
-                      "Don\'t have an account? Sign up",
+                      "Don't have an account? Sign up",
                       style: TextStyle(fontSize: 16, color: Color(0xFFFAA60C)),
                     ),
                   ),

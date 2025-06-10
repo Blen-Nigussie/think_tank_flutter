@@ -69,7 +69,7 @@ class _DashboardPageState extends State<DashboardPage> {
           icon: Container(
             padding: const EdgeInsets.all(8.0),
             decoration: BoxDecoration(
-              color: const Color(0xFFFAA60C).withOpacity(0.2),
+              color: const Color.fromRGBO(250, 166, 12, 0.2),
               borderRadius: BorderRadius.circular(8),
             ),
             child: const Icon(Icons.menu, color: Colors.white),
@@ -125,7 +125,7 @@ class _DashboardPageState extends State<DashboardPage> {
                         height: 180,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(16),
-                          color: const Color(0xFFFAA60C).withOpacity(0.1),
+                          color: const Color(0xFFFAA60C).withAlpha((0.1 * 255).toInt()),
                         ),
                         child: Image.asset(
                           'lib/assets/dashboard_bulb.png', // Assuming this image exists
@@ -190,8 +190,11 @@ class _DashboardPageState extends State<DashboardPage> {
                                   idea: idea,
                                   onClick: () {
                                     debugPrint('Clicked idea: ${idea.title}');
-                                    // TODO: Implement navigation to idea detail page
-                                  },
+                                    Navigator.pushNamed(
+                                      context,
+                                      '/ideaDetails',
+                                      arguments: idea,
+                                    );},
                                 );
                               },
                             ),

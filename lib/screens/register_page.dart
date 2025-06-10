@@ -1,3 +1,5 @@
+import 'dart:nativewrappers/_internal/vm/lib/developer.dart';
+
 import 'package:flutter/material.dart';
 import 'package:thinktankapp/services/auth_service.dart';
 import 'package:thinktankapp/data/models/auth.dart';
@@ -48,7 +50,7 @@ class _RegisterPageState extends State<RegisterPage> {
         password: _passwordController.text,
         role: "user",
       );
-      print('Attempting to register with email: ${registerRequest.email}');
+      log('Attempting to register with email: ${registerRequest.email}');
       final authResponse = await _authService.registerUser(registerRequest);
       await _authService.saveToken(authResponse.accessToken);
       widget.onNavigateToHome();

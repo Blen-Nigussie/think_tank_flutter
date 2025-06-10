@@ -8,6 +8,7 @@ import 'screens/edit_profile_page.dart';
 import 'screens/idea_pool_list_screen.dart';
 import 'data/models/idea.dart';
 import 'data/models/user.dart';
+import 'dart:developer';
 
 void main() {
   runApp(const MyApp());
@@ -67,14 +68,13 @@ class MyApp extends StatelessWidget {
               onReviewIdea: (idea) {
                 // This navigation will no longer go to a feedback screen
                 // You will need to decide where to navigate or what action to take
-                // when an idea is selected for review.
-                print('Review idea: ${idea.title}');
+                log('Review idea: ${idea.title}');
               },
               onViewReviewedIdeas: () {
                 // This navigation will no longer go to a feedback pool screen
                 // You will need to decide where to navigate or what action to take
                 // when viewing reviewed ideas.
-                print('View reviewed ideas');
+                log('View reviewed ideas');
               },
               onBack: () => Navigator.pop(context),
             ),

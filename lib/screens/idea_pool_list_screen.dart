@@ -78,7 +78,7 @@ class IdeaPoolListScreen extends StatelessWidget {
                       idea.description,
                       style: TextStyle(
                         fontSize: 16,
-                        color: Colors.white.withOpacity(0.8),
+                        color: Colors.white.withAlpha((0.8 * 255).toInt()),
                         height: 1.5,
                       ),
                     ),
@@ -90,7 +90,7 @@ class IdeaPoolListScreen extends StatelessWidget {
                           'Submitted by: ${idea.user?.firstName} ${idea.user?.lastName}',
                           style: TextStyle(
                             fontSize: 14,
-                            color: Colors.white.withOpacity(0.7),
+                            color: Colors.white.withAlpha((0.7 * 255).toInt()),
                           ),
                         ),
                         ElevatedButton.icon(

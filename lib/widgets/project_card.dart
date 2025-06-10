@@ -16,7 +16,7 @@ class ProjectCard extends StatelessWidget {
     return GestureDetector(
       onTap: onClick,
       child: Card(
-        color: const Color(0xFFFAA60C).withOpacity(0.1),
+        color: const Color(0xFFFAA60C).withAlpha(200), // Semi-transparent yellow background
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
         ),

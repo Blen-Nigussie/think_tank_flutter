@@ -75,15 +75,15 @@ class ReviewedIdeaCard extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       IconButton(
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.edit,
-                          color: const Color(0xFFFAA60C),
+                          color: Color(0xFFFAA60C),
                           size: 20,
                         ),
                         onPressed: () => onEditFeedback(idea),
                       ),
                       IconButton(
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.delete,
                           color: Colors.red,
                           size: 20,
@@ -102,7 +102,7 @@ class ReviewedIdeaCard extends StatelessWidget {
                 'Submitted by: ${idea.user!.firstName} ${idea.user!.lastName}',
                 style: TextStyle(
                   fontSize: 14,
-                  color: Colors.white.withOpacity(0.7),
+                  color: Colors.white.withAlpha((0.7 * 255).toInt()),
                 ),
               ),
             const SizedBox(height: 8),
@@ -130,12 +130,12 @@ class ReviewedIdeaCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       "Feedback",
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: const Color(0xFFFAA60C),
+                        color: Color(0xFFFAA60C),
                       ),
                     ),
                     const SizedBox(height: 4),

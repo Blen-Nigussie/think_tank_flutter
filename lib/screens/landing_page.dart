@@ -42,7 +42,7 @@ class LandingPage extends StatelessWidget {
                       child: Icon(
                         Icons.lightbulb_outline,
                         size: 150,
-                        color: const Color(0xFFFAA60C).withOpacity(0.3),
+                        color: const Color(0xFFFAA60C).withAlpha((0.3 * 255).toInt()),
                       ),
                     ),
                   );

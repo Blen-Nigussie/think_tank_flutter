@@ -77,10 +77,10 @@ class _IdeaSubmissionPageState extends State<IdeaSubmissionPage> {
 
   @override
   Widget build(BuildContext context) {
-    final Color fontColor = Colors.white;
-    final Color buttonColor = const Color(0xFFFAA60C);
-    final Color backgroundColor = const Color(0xFF1A1A1A);
-    final Color errorColor = const Color(0xFFFF5252);
+    const Color fontColor = Colors.white;
+    const Color buttonColor = Color(0xFFFAA60C);
+    const Color backgroundColor = Color(0xFF1A1A1A);
+    const Color errorColor = Color(0xFFFF5252);
 
     return Scaffold(
       backgroundColor: backgroundColor,
@@ -109,7 +109,7 @@ class _IdeaSubmissionPageState extends State<IdeaSubmissionPage> {
                         onPressed: widget.onBackClick,
                       ),
                       const SizedBox(width: 16),
-                      Text(
+                      const Text(
                         "Submit Your Idea",
                         style: TextStyle(
                           color: fontColor,
@@ -149,28 +149,28 @@ class _IdeaSubmissionPageState extends State<IdeaSubmissionPage> {
                         onChanged: (text) => setState(() { _errorMessage = null; }),
                         decoration: InputDecoration(
                           labelText: 'Title',
-                          labelStyle: TextStyle(color: Colors.white),
+                          labelStyle: const TextStyle(color: Colors.white),
                           filled: true,
                           fillColor: const Color(0xFF2A2A2A),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide(color: Colors.grey),
+                            borderSide: const BorderSide(color: Colors.grey),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide(color: buttonColor),
+                            borderSide: const BorderSide(color: buttonColor),
                           ),
                           errorBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide(color: errorColor),
+                            borderSide: const BorderSide(color: errorColor),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide(color: errorColor),
+                            borderSide: const BorderSide(color: errorColor),
                           ),
                           contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                         ),
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                       ),
                       Align(
                         alignment: Alignment.centerLeft,
@@ -180,7 +180,7 @@ class _IdeaSubmissionPageState extends State<IdeaSubmissionPage> {
                             _titleController.text.length < 3 && _titleController.text.isNotEmpty
                                 ? "Minimum 3 characters"
                                 : "",
-                            style: TextStyle(fontSize: 12, color: errorColor),
+                            style: const TextStyle(fontSize: 12, color: errorColor),
                           ),
                         ),
                       ),
@@ -191,28 +191,28 @@ class _IdeaSubmissionPageState extends State<IdeaSubmissionPage> {
                         maxLines: 5,
                         decoration: InputDecoration(
                           labelText: 'Description',
-                          labelStyle: TextStyle(color: Colors.white),
+                          labelStyle: const TextStyle(color: Colors.white),
                           filled: true,
                           fillColor: const Color(0xFF2A2A2A),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide(color: Colors.grey),
+                            borderSide: const BorderSide(color: Colors.grey),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide(color: buttonColor),
+                            borderSide: const BorderSide(color: buttonColor),
                           ),
                           errorBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide(color: errorColor),
+                            borderSide: const BorderSide(color: errorColor),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide(color: errorColor),
+                            borderSide: const BorderSide(color: errorColor),
                           ),
                           contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                         ),
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                       ),
                       Align(
                         alignment: Alignment.centerLeft,
@@ -222,7 +222,7 @@ class _IdeaSubmissionPageState extends State<IdeaSubmissionPage> {
                             _descriptionController.text.length < 10 && _descriptionController.text.isNotEmpty
                                 ? "Minimum 10 characters"
                                 : "",
-                            style: TextStyle(fontSize: 12, color: errorColor),
+                            style: const TextStyle(fontSize: 12, color: errorColor),
                           ),
                         ),
                       ),
@@ -231,25 +231,25 @@ class _IdeaSubmissionPageState extends State<IdeaSubmissionPage> {
                         controller: _tagsController,
                         decoration: InputDecoration(
                           labelText: 'Tags (optional)',
-                          labelStyle: TextStyle(color: Colors.white),
+                          labelStyle: const TextStyle(color: Colors.white),
                           filled: true,
                           fillColor: const Color(0xFF2A2A2A),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide(color: Colors.grey),
+                            borderSide: const BorderSide(color: Colors.grey),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide(color: buttonColor),
+                            borderSide: const BorderSide(color: buttonColor),
                           ),
                           contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                         ),
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                       ),
-                      Align(
+                      const Align(
                         alignment: Alignment.centerLeft,
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 8.0, top: 4.0),
+                          padding: EdgeInsets.only(left: 8.0, top: 4.0),
                           child: Text(
                             "Separate tags with commas",
                             style: TextStyle(fontSize: 12, color: Colors.grey),
@@ -266,12 +266,12 @@ class _IdeaSubmissionPageState extends State<IdeaSubmissionPage> {
                       width: double.infinity,
                       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                       decoration: BoxDecoration(
-                        color: errorColor.withOpacity(0.1),
+                        color: errorColor.withAlpha((0.1 * 255).toInt()),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Text(
                         _errorMessage!,
-                        style: TextStyle(color: errorColor, fontSize: 14),
+                        style: const TextStyle(color: errorColor, fontSize: 14),
                         textAlign: TextAlign.center,
                       ),
                     ),
@@ -310,7 +310,7 @@ class _IdeaSubmissionPageState extends State<IdeaSubmissionPage> {
             if (_submissionSuccess)
               Positioned.fill(
                 child: Container(
-                  color: Colors.black.withOpacity(0.7),
+                  color: Colors.black.withAlpha((0.7 * 255).toInt()),
                   child: Center(
                     child: Container(
                       margin: const EdgeInsets.all(32.0),
@@ -319,9 +319,9 @@ class _IdeaSubmissionPageState extends State<IdeaSubmissionPage> {
                         color: const Color(0xFF4CAF50), // Green color for success
                         borderRadius: BorderRadius.circular(16),
                       ),
-                      child: Column(
+                      child: const Column(
                         mainAxisSize: MainAxisSize.min,
-                        children: const [
+                        children: [
                           Icon(
                             Icons.check_circle,
                             color: Colors.white,

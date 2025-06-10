@@ -112,21 +112,24 @@ class _EditIdeaPageState extends State<EditIdeaPage> {
         _updateSuccess = true;
         _isUpdating = false;
       });
+      if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Idea updated successfully!')),
       );
       Future.delayed(const Duration(seconds: 1), () {
-        widget.onBackClick();
+        if (mounted) {
+          widget.onBackClick();
+        }
       });
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final Color orange = const Color(0xFFFAA60C);
-    final Color white = Colors.white;
-    final Color backgroundColor = Colors.black;
-    final Color greyColor = Colors.grey; // For unfocused borders/labels
+    const Color orange = Color(0xFFFAA60C);
+    const Color white = Colors.white;
+    const Color backgroundColor = Colors.black;
+    const Color greyColor = Colors.grey; // For unfocused borders/labels
 
     return Scaffold(
       backgroundColor: backgroundColor,
@@ -142,13 +145,13 @@ class _EditIdeaPageState extends State<EditIdeaPage> {
                     children: [
                       IconButton(
                         onPressed: widget.onBackClick,
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.arrow_back,
                           color: white,
                         ),
                       ),
                       const Spacer(),
-                      Text(
+                      const Text(
                         "Edit Idea",
                         style: TextStyle(
                           color: orange,
@@ -162,14 +165,14 @@ class _EditIdeaPageState extends State<EditIdeaPage> {
                   ),
                   const SizedBox(height: 24),
                   _isLoading
-                      ? Center(
+                      ? const Center(
                           child: CircularProgressIndicator(color: orange),
                         )
                       : _errorMessage != null
                           ? Center(
                               child: Text(
                                 _errorMessage!,
-                                style: TextStyle(color: Colors.red, fontSize: 16),
+                                style: const TextStyle(color: Colors.red, fontSize: 16),
                                 textAlign: TextAlign.center,
                               ),
                             )
@@ -178,7 +181,7 @@ class _EditIdeaPageState extends State<EditIdeaPage> {
                               children: [
                                 TextField(
                                   controller: _titleController,
-                                  decoration: InputDecoration(
+                                  decoration: const InputDecoration(
                                     labelText: 'Title',
                                     labelStyle: TextStyle(color: greyColor),
                                     focusedBorder: OutlineInputBorder(
@@ -188,17 +191,17 @@ class _EditIdeaPageState extends State<EditIdeaPage> {
                                       borderSide: BorderSide(color: greyColor),
                                     ),
                                     floatingLabelStyle: TextStyle(color: orange),
-                                    fillColor: const Color(0xFF2A2A2A),
+                                    fillColor:  Color(0xFF2A2A2A),
                                     filled: true,
                                     hintStyle: TextStyle(color: greyColor),
                                   ),
-                                  style: TextStyle(color: white),
+                                  style: const TextStyle(color: white),
                                 ),
                                 const SizedBox(height: 16),
                                 TextField(
                                   controller: _descriptionController,
                                   maxLines: 5,
-                                  decoration: InputDecoration(
+                                  decoration: const InputDecoration(
                                     labelText: 'Description',
                                     labelStyle: TextStyle(color: greyColor),
                                     focusedBorder: OutlineInputBorder(
@@ -208,16 +211,16 @@ class _EditIdeaPageState extends State<EditIdeaPage> {
                                       borderSide: BorderSide(color: greyColor),
                                     ),
                                     floatingLabelStyle: TextStyle(color: orange),
-                                    fillColor: const Color(0xFF2A2A2A),
+                                    fillColor: Color(0xFF2A2A2A),
                                     filled: true,
                                     hintStyle: TextStyle(color: greyColor),
                                   ),
-                                  style: TextStyle(color: white),
+                                  style: const TextStyle(color: white),
                                 ),
                                 const SizedBox(height: 16),
                                 TextField(
                                   controller: _tagsController,
-                                  decoration: InputDecoration(
+                                  decoration: const InputDecoration(
                                     labelText: 'Tags (comma-separated)',
                                     labelStyle: TextStyle(color: greyColor),
                                     focusedBorder: OutlineInputBorder(
@@ -227,11 +230,11 @@ class _EditIdeaPageState extends State<EditIdeaPage> {
                                       borderSide: BorderSide(color: greyColor),
                                     ),
                                     floatingLabelStyle: TextStyle(color: orange),
-                                    fillColor: const Color(0xFF2A2A2A),
+                                    fillColor:Color(0xFF2A2A2A),
                                     filled: true,
                                     hintStyle: TextStyle(color: greyColor),
                                   ),
-                                  style: TextStyle(color: white),
+                                  style: const TextStyle(color: white),
                                 ),
                                 const SizedBox(height: 24),
                                 ElevatedButton(
@@ -268,7 +271,7 @@ class _EditIdeaPageState extends State<EditIdeaPage> {
             if (_updateSuccess)
               Positioned.fill(
                 child: Container(
-                  color: Colors.black.withOpacity(0.7),
+                  color: Colors.black.withAlpha((0.7 * 255).toInt()),
                   child: Center(
                     child: Container(
                       margin: const EdgeInsets.all(32.0),
@@ -277,9 +280,9 @@ class _EditIdeaPageState extends State<EditIdeaPage> {
                         color: const Color(0xFF4CAF50), // Green for success
                         borderRadius: BorderRadius.circular(16),
                       ),
-                      child: Column(
+                      child: const Column(
                         mainAxisSize: MainAxisSize.min,
-                        children: const [
+                        children: [
                           Icon(
                             Icons.check_circle,
                             color: Colors.white,

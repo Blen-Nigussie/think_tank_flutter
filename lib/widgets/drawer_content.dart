@@ -38,8 +38,8 @@ class DrawerContent extends StatelessWidget {
       backgroundColor: const Color(0xFF1A1A1A),
       child: Column(
         children: [
-          DrawerHeader(
-            decoration: const BoxDecoration(
+          const DrawerHeader(
+            decoration: BoxDecoration(
               color: Color(0xFF1A1A1A),
             ),
             child: Align(
@@ -47,7 +47,7 @@ class DrawerContent extends StatelessWidget {
               child: Text(
                 "Menu",
                 style: TextStyle(
-                  color: const Color(0xFFFAA60C),
+                  color: Color(0xFFFAA60C),
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'KellySlab', // Assuming you have this font set up in pubspec.yaml
@@ -72,7 +72,6 @@ class DrawerContent extends StatelessWidget {
                       // For exiting the app, we'll just pop until the first route
                       Navigator.of(context).popUntil((route) => route.isFirst);
                     } else if (item.route == "/logout") {
-                      // TODO: Implement actual logout logic
                       debugPrint('Logout logic here');
                       Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
                     } else {
